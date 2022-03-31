@@ -1,3 +1,5 @@
+require 'io/console'
+
 module Rps
 
   class << self
@@ -8,7 +10,7 @@ module Rps
       loop do
         enemy.sign = ['g', 'c', 'p'].sample
         loop do
-          player.sign = gets.chomp
+          player.sign = STDIN.noecho{gets.chomp}
           break if player.sign == 'g'||player.sign == 'c'||player.sign == 'p'
           print "Press g or c or p.\nじゃんけん...\n"
         end

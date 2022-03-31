@@ -1,3 +1,4 @@
+require 'io/console'
 require_relative 'rps'
 
 class Player
@@ -19,10 +20,10 @@ you = Player.new(name: 'あなた')
 
 loop do
   print '何本勝負？(press 1 or 3 or 5)：'
-  @roundNum = gets.chomp.to_i
+  @roundNum = STDIN.noecho {gets.chomp.to_i}
   puts ''
   break if @roundNum == 1||@roundNum == 3||@roundNum == 5
-  puts "Press 1 or 3 or 5.\n"
+  puts "Press 1 or 3 or 5.\n\n"
 end
 
 @roundNum.times do |i|
